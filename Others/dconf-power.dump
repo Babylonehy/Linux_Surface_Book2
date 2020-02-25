@@ -1,0 +1,5 @@
+[/]
+idle-dim=false
+ambient-enabled=false
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
