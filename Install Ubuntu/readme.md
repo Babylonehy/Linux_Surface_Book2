@@ -124,6 +124,7 @@ sudo apt install nvidia-390 nvidia-modprobe nvidia-settings nvidia-prime
 [Install NVIDIA Graphics Driver](https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07#remove-previous-installations--important-)
 
 ## modprobe: FATAL: Module nvidia-uvm not found.
+----This Part is very important Build if from source is better--
 https://blog.csdn.net/yijuan_hw/article/details/53439408
 
 make sure load nvidia driver:```lspci | grep -i nvidia ```
@@ -133,6 +134,20 @@ make sure load nvidia driver:```lspci | grep -i nvidia ```
 ```
 dkms build -m nvdia -v 430.64
 /var/lib/dkms/nvidia/430.64/source
+```
+-------------------------------------------
+# Delte Kernel 
+Install synaptic
+```
+sudo apt install synaptic
+```
+Find all kernel by *linux-image,linux-header*
+update grub2 ```sudo update-grub2```
+# SSH Key
+```
+ls -al ~/.ssh
+# Lists the files in your .ssh directory, if they exist
+ssh-keygen
 ```
 
 # Reference
