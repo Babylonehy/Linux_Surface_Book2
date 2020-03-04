@@ -123,6 +123,18 @@ sudo apt install nvidia-390 nvidia-modprobe nvidia-settings nvidia-prime
 ```
 [Install NVIDIA Graphics Driver](https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07#remove-previous-installations--important-)
 
+**Remove Previous Installations (Important)**
+```
+sudo apt-get purge nvidia*
+
+# Note this might remove your cuda installation as well
+sudo apt-get autoremove 
+```
+As a summary, excuting `sudo apt-get install build-essential gcc-multilib dkms` to install all dependencies.
+```
+blacklist nouveau
+options nouveau modeset=0
+```
 ## modprobe: FATAL: Module nvidia-uvm not found.
 ----This Part is very important Build if from source is better--
 https://blog.csdn.net/yijuan_hw/article/details/53439408
@@ -143,6 +155,11 @@ sudo apt install synaptic
 ```
 Find all kernel by *linux-image,linux-header*
 update grub2 ```sudo update-grub2```
+List all kernels 
+```
+dpkg --get-selections | grep linux
+sudo apt-get remove linux-image-
+```
 # SSH Key
 ```
 ls -al ~/.ssh
