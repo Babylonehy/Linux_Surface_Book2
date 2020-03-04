@@ -148,6 +148,54 @@ dkms build -m nvdia -v 430.64
 /var/lib/dkms/nvidia/430.64/source
 ```
 -------------------------------------------
+
+# CUDA
+[cuda-toolkit-archive](https://developer.nvidia.com/cuda-toolkit-archive)
+
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-ubuntu1604.pin
+sudo mv cuda-ubuntu1604.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda-repo-ubuntu1604-10-1-local-10.1.243-418.87.00_1.0-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604-10-1-local-10.1.243-418.87.00_1.0-1_amd64.deb
+sudo apt-key add /var/cuda-repo-10-1-local-10.1.243-418.87.00/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+```
+
+```
+# 设置路径
+vi ~/.bashrc
+
+export CUDA_HOME=/usr/local/cuda-10.1
+export PATH=${CUDA_HOME}/bin:$PATH
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64/:$LD_LIBRARY_PATH
+
+source ~/.bashrc
+```
+
+```
+# 查看cuda版本，测试是否安装成功
+cat /usr/local/cuda/version.txt 
+nvcc -V
+
+# 编译 samples
+cd /usr/local/cuda-10.0/samples
+sudo make
+cd /usr/local/cuda/samples/bin/x86_64/linux/release
+./deviceQuery
+```
+## CUDNN 7.6.5
+[CUDNN](https://developer.nvidia.com/rdp/cudnn-download)
+
+```
+tar -zxvf cudnn-10.1-linux-x64-v7.6.1.34.tgz
+cp cuda/lib64/* /usr/local/cuda-10.1/lib64/
+cp cuda/include/* /usr/local/cuda-10.1/include/
+
+# 查看cudnn版本
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+```
+
 # Delte Kernel 
 Install synaptic
 ```
@@ -160,6 +208,7 @@ List all kernels
 dpkg --get-selections | grep linux
 sudo apt-get remove linux-image-
 ```
+
 # SSH Key
 ```
 ls -al ~/.ssh
