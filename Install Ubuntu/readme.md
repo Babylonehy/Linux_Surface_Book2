@@ -100,6 +100,26 @@ The per-user daemon takes care of notifications, i.e. it notifies you when the l
 [surface-dgpu]: https://github.com/linux-surface/surface-aggregator-module#controlling-the-dgpu-power-state
 [surface-dtx-daemon]: https://github.com/linux-surface/surface-dtx-daemon
 [surface-fix-eraser]: https://github.com/linux-surface/surface-fix-eraser
+# NVIDIA
+[Download](https://www.nvidia.com/Download/index.aspx?lang=en-us)
+[Download Archive](https://www.nvidia.com/en-us/drivers/unix/)
+[Requirements](http://us.download.nvidia.com/XFree86/Linux-x86_64/384.69/README/minimumrequirements.html)
+```
+lshw -numeric -C display
+
+lspci | grep -i nvidia
+```
+The above commands will output your NVIDIA model number.
+
+```
+sudo add-apt-repository ppa:graphics-drivers/ppa && sudo apt-get update
+#search 
+sudo apt-cache search nvidia 
+# or Recommand.
+ubuntu-drivers devices
+sudo apt install nvidia-390 nvidia-modprobe nvidia-settings nvidia-prime
+```
+[Install NVIDIA Graphics Driver](https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07#remove-previous-installations--important-)
 
 # Reference
 - [ubuntu 16.04](https://turlucode.com/how-to-install-ubuntu-16-04-on-surface-book-2/)
