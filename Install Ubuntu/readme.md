@@ -104,6 +104,8 @@ The per-user daemon takes care of notifications, i.e. it notifies you when the l
 [Download](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 [Download Archive](https://www.nvidia.com/en-us/drivers/unix/)
 [Requirements](http://us.download.nvidia.com/XFree86/Linux-x86_64/384.69/README/minimumrequirements.html)
+
+https://askubuntu.com/questions/832524/possible-missing-frmware-lib-firmware-i915
 ```
 lshw -numeric -C display
 
