@@ -123,6 +123,18 @@ sudo apt install nvidia-390 nvidia-modprobe nvidia-settings nvidia-prime
 ```
 [Install NVIDIA Graphics Driver](https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07#remove-previous-installations--important-)
 
+## modprobe: FATAL: Module nvidia-uvm not found.
+https://blog.csdn.net/yijuan_hw/article/details/53439408
+
+make sure load nvidia driver:```lspci | grep -i nvidia ```
+
+```dkms status``` :bbswitch, 0.8: added  nvidia, 430.64: added
+
+```
+dkms build -m nvdia -v 430.64
+/var/lib/dkms/nvidia/430.64/source
+```
+
 # Reference
 - [ubuntu 16.04](https://turlucode.com/how-to-install-ubuntu-16-04-on-surface-book-2/)
 - [ubuntu 18.04](https://turlucode.com/how-to-install-ubuntu-18-04-on-surface-book-2/)
