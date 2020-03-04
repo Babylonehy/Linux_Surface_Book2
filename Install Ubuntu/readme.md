@@ -195,6 +195,15 @@ cp cuda/include/* /usr/local/cuda-10.1/include/
 # 查看cudnn版本
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 ```
+# Anaconda 
+[Download](https://www.anaconda.com/distribution/#linux)
+
+Install 
+
+```
+source ~/anaconda3/bin/activate root
+anaconda-navigator
+```
 
 # Delte Kernel 
 Install synaptic
